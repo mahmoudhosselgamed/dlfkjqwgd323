@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  height: 100vh;
+}
+
+/* 🌠 Animated Space Background */
+.stars, .twinkling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -2;
+}
+
+.stars {
+  background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
+  animation: moveStars 200s linear infinite;
+}
+
+@keyframes moveStars {
+  from {background-position: 0 0;}
+  to {background-position: -10000px 5000px;}
+}
+
+.twinkling {
+  background: transparent url('https://www.transparenttextures.com/patterns/tiny-grid.png') repeat top center;
+  animation: moveTwinkling 400s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes moveTwinkling {
+  from {background-position: 0 0;}
+  to {background-position: 10000px 5000px;}
+}
+
+/* 🌍 Multiple Drifting Planets */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* 🪐 Blue Planet — moves ↘ diagonally down-right */
+.planet-blue {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #00aaff, #001133);
+  box-shadow: 0 0 40px 10px rgba(0, 170, 255, 0.4);
+  animation: moveBlue 8s linear infinite;
+}
+
+/* 🔥 Red Planet — moves ↙ diagonally down-left */
+.planet-red {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 40% 40%, #ff7b00, #330000);
+  box-shadow: 0 0 30px 8px rgba(255, 120, 0, 0.4);
+  animation: moveRed 9s linear infinite;
+}
+
+/* 💚 Green Planet — moves ↗ diagonally up-right */
+.planet-green {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 50% 50%, #aaff99, #003300);
+  box-shadow: 0 0 25px 6px rgba(100, 255, 150, 0.3);
+  animation: moveGreen 10s linear infinite;
+}
+
+/* 🤍 White Planet — moves ↖ diagonally up-left */
+.planet-white {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 50% 50%, #ffffff, #888);
+  box-shadow: 0 0 25px 6px rgba(255, 255, 255, 0.3);
+  animation: moveWhite 11s linear infinite;
+}
+
+/* ✨ Diagonal Drift Animations */
+@keyframes moveBlue {
+  0%   { left: -150px; top: 10%; opacity: 0; transform: scale(1); }
+  10%  { opacity: 1; }
+  50%  { transform: scale(1.05); }
+  100% { left: 110%; top: 70%; opacity: 0; transform: scale(1); }
+}
+
+@keyframes moveRed {
+  0%   { right: -150px; top: 60%; opacity: 0; transform: scale(1); }
+  10%  { opacity: 1; }
+  50%  { transform: scale(1.05); }
+  100% { right: 110%; top: 90%; opacity: 0; transform: scale(1); }
+}
+
+@keyframes moveGreen {
+  0%   { left: -150px; top: 80%; opacity: 0; transform: scale(1); }
+  10%  { opacity: 1; }
+  50%  { transform: scale(1.05); }
+  100% { left: 110%; top: 10%; opacity: 0; transform: scale(1); }
+}
+
+@keyframes moveWhite {
+  0%   { right: -150px; top: 40%; opacity: 0; transform: scale(1); }
+  10%  { opacity: 1; }
+  50%  { transform: scale(1.03); }
+  100% { right: 110%; top: 0%; opacity: 0; transform: scale(1); }
+}
+
+
+
+
+
+
+
+
+
+/* 🚀 Container */
+.container {
+  width: 700px;
+  max-width: 90%;
+  margin: auto;
+  background: rgba(10, 10, 30, 0.7);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  backdrop-filter: blur(10px);
+}
+
+/* Title + Subtitle */
+.title {
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* 💬 Chat Area */
+.chat-box {
+  background: rgba(255, 255, 255, 0.1);
+  height: 350px;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff transparent;
+}
+
+.user-msg, .bot-msg {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.user-msg {
+  color: #00ffff;
+  font-weight: bold;
+  text-align: right;
+}
+
+.bot-msg {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #00ffff;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Section */
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+#user-input {
+  flex: 1;
+  background: rgba(20, 20, 40, 0.9);
+  color: white;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  padding: 12px;
+  resize: none;
+  height: 55px;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+#send-btn {
+  background: linear-gradient(135deg, #00ffff, #0077ff);
+  border: none;
+  color: #000;
+  padding: 0 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+#send-btn:hover {
+  background: linear-gradient(135deg, #00cccc, #0055ff);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* 🪐 Scrollbar (optional aesthetic) */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 10px;
+}
